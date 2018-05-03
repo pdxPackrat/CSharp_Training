@@ -24,6 +24,12 @@ namespace Event_Tutorial
             Console.WriteLine("BeforePrintEventHandler: PrintHelper is going to print a value");
         }
 
+        //beforePrintEvent handler
+        void printHelper_beforePrintEvent(string message)
+        {
+            Console.WriteLine("BeforePrintEvent fires from {0}", message);
+        }
+
         private int _value;
 
         public int Value

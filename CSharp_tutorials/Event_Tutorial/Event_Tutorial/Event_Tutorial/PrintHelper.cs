@@ -7,7 +7,7 @@ namespace Event_Tutorial
     class PrintHelper
     {
         // declare delegate
-        public delegate void BeforePrint();
+        public delegate void BeforePrint(string message);
 
         // declare event of type delegate
         public event BeforePrint beforePrintEvent;
@@ -21,7 +21,7 @@ namespace Event_Tutorial
         {
             // call delegate method before going to print
             if (beforePrintEvent != null)
-                beforePrintEvent();
+                beforePrintEvent.Invoke("PrintNumber");
 
             Console.WriteLine("Number: {0,-12:N0}", num);
         }
@@ -31,7 +31,7 @@ namespace Event_Tutorial
         {
             // call delegate method before going to print
             if (beforePrintEvent != null)
-                beforePrintEvent();
+                beforePrintEvent("PrintDecimal");
 
             Console.WriteLine("Number: {0:G}", dec);
         }
@@ -41,7 +41,7 @@ namespace Event_Tutorial
         {
             // call delegate method before going to print
             if (beforePrintEvent != null)
-                beforePrintEvent();
+                beforePrintEvent("PrintMoney");
 
             Console.WriteLine("Number: {0:C}", money);
         }
@@ -51,7 +51,7 @@ namespace Event_Tutorial
         {
             // call delegate method before going to print
             if (beforePrintEvent != null)
-                beforePrintEvent();
+                beforePrintEvent("PrintTemperature");
 
             Console.WriteLine("Number: {0,4:N1} F", num);
         }
@@ -61,7 +61,7 @@ namespace Event_Tutorial
         {
             // call delegate method before going to print
             if (beforePrintEvent != null)
-                beforePrintEvent();
+                beforePrintEvent("PrintHexidecimal");
 
             Console.WriteLine("Number: {0:X}", dec);
         }
